@@ -1,3 +1,4 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -29,7 +30,7 @@ class GamelobbyController extends GetxController {
 
     try {
       // Logic: Adjust your API URL to accept a page parameter
-      final response = await http.get(Uri.parse('https://cdn.coinbet91.com/P65/gamelist/allgames_v2.json'));
+      final response = await http.get(Uri.parse("${dotenv.env['mainurl']}"));
 
       if (response.statusCode == 200) {
         final List<dynamic> data = json.decode(response.body);
