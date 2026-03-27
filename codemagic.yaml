@@ -1,0 +1,14 @@
+workflows:
+  canada-sports-build:
+    name: Canada Sports Flutter Build
+    environment:
+      flutter: stable
+
+    scripts:
+      - echo "Start build for Canada_Sports"
+      - flutter clean
+      - flutter pub get
+      - flutter build apk --release
+
+    artifacts:
+      - build/app/outputs/flutter-apk/app-release.apk
